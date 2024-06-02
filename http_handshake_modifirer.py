@@ -133,8 +133,9 @@ def send_modified_http_header(data , sock):
     # host_string = re.findall(b"\r\nHost:(.*)\r\n", data)[0] 
     # print(host_string)
 
-    new_data = new_data.replace(b"Go-http-client/1.1",b"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36")
+    new_data = data.replace(b"Go-http-client/1.1",b"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36")
 
+    print('----------modified:------------')
     print(new_data)
     sock.sendall(new_data)
     print('----------finish------------')
